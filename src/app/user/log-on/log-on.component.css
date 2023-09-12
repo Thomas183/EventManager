@@ -1,0 +1,17 @@
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.registerForm .p-inputgroup {
+  width: 15%;
+}
+
+h1 {
+  text-align: center;
+}
+
+/*# sourceMappingURL=log-on.component.css.map */
