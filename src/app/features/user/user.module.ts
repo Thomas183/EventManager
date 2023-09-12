@@ -5,8 +5,8 @@ import { LogOnComponent } from './log-on/log-on.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { InputTextModule } from 'primeng/inputtext';
-import { PrimeIcons } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +23,9 @@ import { ButtonModule } from 'primeng/button';
     BrowserAnimationsModule,
     CommonModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }

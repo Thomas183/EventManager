@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FullUser } from '../models/full-user';
+import { FullUser } from '../../shared/models/full-user';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ export class LoggerService {
 
   }
 
+  public token : string | undefined;
   apiUrl: string = 'https://localhost:7245/api';
 
   register(user: FullUser): void {
