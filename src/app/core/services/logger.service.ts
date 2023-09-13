@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FullUser } from '../../shared/models/full-user';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {FullUser} from '../../shared/models/full-user';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class LoggerService {
 
   }
 
-  public token : string | undefined;
-  apiUrl: string = 'https://localhost:7245/api';
+  public token: string | undefined;
+  apiUrl: string = 'https://192.168.0.12:7245/api';
 
   register(user: FullUser): void {
     this._httpClient.post(`${this.apiUrl}/Auth/Register`, user).subscribe({
@@ -26,10 +26,11 @@ export class LoggerService {
   }
 
   logon(
-    user : {
+    user: {
       identifier: string,
-      password: string, }
-  ) : void {
+      password: string,
+    }
+  ): void {
     this._httpClient.post(`${this.apiUrl}/Auth/Login`, user).subscribe({
       next: response => {
         console.log('Login Successful : ', response);
