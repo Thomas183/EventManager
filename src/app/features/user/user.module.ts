@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {RouterLink, RouterModule, Routes} from "@angular/router";
 
 
 @NgModule({
@@ -18,14 +19,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     LogOnComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    CommonModule,
-    InputTextModule,
-    ButtonModule,
-    FormsModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        CommonModule,
+        InputTextModule,
+        ButtonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterLink,
+        RouterModule,
+    ]
 })
 export class UserModule { }

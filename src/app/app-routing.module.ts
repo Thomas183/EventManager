@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./features/home/home.component";
 import {LogOnComponent} from "./features/user/log-on/log-on.component";
 import {IncomingEventsComponent} from "./features/events/incoming-events/incoming-events.component";
+import {RegisterComponent} from "./features/user/register/register.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: "events", component : IncomingEventsComponent
+  },
+  {
+    path: "register", component : RegisterComponent
   }
 ];
 

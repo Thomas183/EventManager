@@ -1,4 +1,4 @@
-.registerForm {
+form .registerForm {
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -6,12 +6,17 @@
   align-items: center;
   height: 100%;
 }
-.registerForm .p-inputgroup {
+form .p-inputgroup {
   width: 260px;
 }
 
 h1 {
   text-align: center;
+}
+
+#submitButtons {
+  display: flex;
+  gap: 20px;
 }
 
 /*# sourceMappingURL=register.component.css.map */

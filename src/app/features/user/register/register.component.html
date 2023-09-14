@@ -2,48 +2,53 @@
 
 <form [formGroup]='registerForm'>
   <div class='registerForm'>
+
     <div class='p-inputgroup'>
   <span class='p-inputgroup-addon'>
     <i class='pi pi-user'></i>
   </span>
-      <input pInputText placeholder='Pseudo' formControlName='pseudo'>
+      <input pInputText placeholder='Pseudo' formControlName='pseudo' type="text">
     </div>
+
 
     <div class='p-inputgroup'>
   <span class='p-inputgroup-addon'>
     <i class='pi pi-at'></i>
   </span>
-      <input pInputText placeholder='Email' formControlName='mail'>
+      <input pInputText placeholder='Email' formControlName='email' type="email">
     </div>
 
     <div class='p-inputgroup'>
   <span class='p-inputgroup-addon'>
     <i class='pi pi-lock'></i>
   </span>
-      <input pInputText placeholder='Mot de passe' formControlName='password'>
+      <input pInputText placeholder='Mot de passe' formControlName='password' type="password">
     </div>
 
     <div class='p-inputgroup'>
   <span class='p-inputgroup-addon'>
     <i class='pi pi-lock'></i>
   </span>
-      <input pInputText placeholder='Confirmer le mot de passe' formControlName='confirmPassword'>
+      <input pInputText placeholder='Confirmer le mot de passe' formControlName='confirmPassword' type="password">
     </div>
 
     <div class='p-inputgroup'>
   <span class='p-inputgroup-addon'>
 
   </span>
-      <input pInputText placeholder='Nom' formControlName='lastname'>
+      <input pInputText placeholder='Prénom' formControlName='firstName' type="text">
     </div>
 
     <div class='p-inputgroup'>
   <span class='p-inputgroup-addon'>
 
   </span>
-      <input pInputText placeholder='Prénom' formControlName='name'>
+      <input pInputText placeholder='Nom' formControlName='lastName' type="text">
     </div>
 
-    <p-button label='Register'></p-button>
+    <div id="submitButtons">
+      <p-button label='Inscription' (click)="onSubmit()"></p-button>
+      <p-button label='Connexion' (click)="this._router.navigate(['login'])"></p-button>
+    </div>
   </div>
 </form>

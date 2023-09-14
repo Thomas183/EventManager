@@ -15,6 +15,9 @@
     <input pInputText placeholder='Email'>
   </div>
 
-  <p-button label='Register'></p-button>
+  <div id="submitButtons">
+    <p-button label='Inscription' (click)="this._router.navigate(['register'])"></p-button>
+    <p-button label='Connexion'></p-button>
+  </div>
 </div>
 
