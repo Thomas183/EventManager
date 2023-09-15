@@ -9,6 +9,7 @@ import { HomeComponent } from './features/home/home.component';
 import {SharedModule} from "./shared/shared.module";
 import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
+import { EventsModule } from './features/events/events.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {CardModule} from "primeng/card";
     SharedModule,
     ButtonModule,
     CardModule,
+    EventsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

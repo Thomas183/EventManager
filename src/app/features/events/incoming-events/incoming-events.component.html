@@ -1,1 +1,10 @@
-<p>incoming-events works!</p>
+<h1>Evénements</h1>
+<div *ngFor='let activity of activities'>
+  <p>{{activity.name}}</p>
+  <p>{{activity.description}}</p>
+  <p-button>Details</p-button>
+  <br>
+  <br>
+  <p-button>S'inscrire</p-button>
+
+</div>

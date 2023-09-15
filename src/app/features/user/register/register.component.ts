@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {LoggerService} from '../../../core/services/logger.service';
+import {AuthService} from '../../../core/services/auth.service';
 import {FullUser} from '../../../shared/models/full-user';
 import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
 import {interval} from 'rxjs';
@@ -24,14 +24,14 @@ export class RegisterComponent {
 
   registerForm: FormGroup
 
-  constructor(private _logger: LoggerService, private _fb: FormBuilder, public _router: Router) {
+  constructor(private _logger: AuthService, private _fb: FormBuilder, public _router: Router) {
     this.registerForm = this._fb.group({
-      pseudo: [null, Validators.required],
-      email: [null, Validators.required],
-      password: [null, Validators.required],
-      confirmPassword: [null, Validators.required],
-      firstName: [null, Validators.required],
-      lastName: [null, Validators.required],
+      pseudo: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)], []],
+      email: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)], []],
+      password: [null, [Validators.required, Validators.pattern('(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).{5,}')], []],
+      confirmPassword: [null, [Validators.required, Validators.pattern('(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).{5,}')], []],
+      firstName: [null, [Validators.required, Validators.maxLength(50)], []],
+      lastName: [null, [Validators.required, Validators.maxLength(50)], []],
     }, {validator: this.passwordMatchValidator});
   }
 
@@ -46,7 +46,7 @@ export class RegisterComponent {
     return null;
   }
 
-  onSubmit(): void {
+  register(): void {
     if (this.registerForm.valid) {
       const formData = this.registerForm.value;
       delete formData.confirmPassword;
@@ -58,7 +58,7 @@ export class RegisterComponent {
             identifier: formData.email,
             password: formData.password,
           }
-          this._logger.logon(user);
+          this._logger.login(user);
           this._router.navigate(['home'])
         },
         error: error => {

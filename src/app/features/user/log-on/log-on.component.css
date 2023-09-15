@@ -1,4 +1,4 @@
-.registerForm {
+.loginForm {
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -6,7 +6,7 @@
   align-items: center;
   height: 100%;
 }
-.registerForm .p-inputgroup {
+.loginForm .p-inputgroup {
   width: 15%;
 }
 

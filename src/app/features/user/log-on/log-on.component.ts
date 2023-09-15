@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Credentials } from '../../../core/models/credentials';
 
 
 @Component({
@@ -8,6 +11,23 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./log-on.component.sass']
 })
 export class LogOnComponent {
-  constructor(public _router : Router, private route: ActivatedRoute) {
+
+  loginForm: FormGroup;
+
+  constructor(public _router: Router, private route: ActivatedRoute, private _logger: AuthService, private _fb: FormBuilder) {
+    this.loginForm = _fb.group({
+      identifier: [null, Validators.required],
+      password: [null, Validators.required]
+    });
+  }
+
+  login() : void {
+    if (this.loginForm.valid) {
+      const credentials : Credentials = this.loginForm.value;
+      this._logger.login(credentials);
+      this._router.navigate(['home']);
+    } else {
+      console.log('Login form invalide');
+    }
   }
 }

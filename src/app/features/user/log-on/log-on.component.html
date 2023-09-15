@@ -1,6 +1,6 @@
 <h1>Connexion</h1>
 
-<div class='registerForm'>
+<div class='loginForm'>
   <div class='p-inputgroup'>
   <span class='p-inputgroup-addon'>
     <i class='pi pi-user'></i>
@@ -10,14 +10,14 @@
 
   <div class='p-inputgroup'>
   <span class='p-inputgroup-addon'>
-    <i class='pi pi-at'></i>
+    <i class='pi pi-lock'></i>
   </span>
-    <input pInputText placeholder='Email'>
+    <input pInputText placeholder='Mot de passe' type='password'>
   </div>
 
   <div id="submitButtons">
-    <p-button label='Inscription' (click)="this._router.navigate(['register'])"></p-button>
-    <p-button label='Connexion'></p-button>
+    <p-button label='Pas de compte ?' (click)="this._router.navigate(['register'])"></p-button>
+    <p-button label='Connexion' (click)='login()'></p-button>
   </div>
 </div>
 
