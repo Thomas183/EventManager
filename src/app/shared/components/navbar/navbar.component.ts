@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {AuthService} from "../../../core/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.sass']
 })
 export class NavbarComponent {
+
+  isLoggedIn : boolean = this._authService.isUserLoggedin()
+
   menuItems = [
     {
       label : "Acceuil",
@@ -13,16 +18,31 @@ export class NavbarComponent {
     },
     {
       label : "Événements",
-      routerLink: "events",
-      Items: [
+      items: [
         {
-          label : "test"
+          label : "Événements à venir",
+          routerLink: "events"
+        },
+        {
+          label: "Mes événements",
+          routerLink: "user-events",
+          disabled: !this.isLoggedIn
+        },
+        {
+          label: "Créer un événement",
+          routerLink: "createEvent",
+          disabled: !this.isLoggedIn
         }
       ]
     },
-    {
-      label : "Connexion",
-      routerLink: "login"
-    }
   ]
+  constructor(private _authService : AuthService, private _router : Router) {
+
+  }
+
+  logout(): void {
+    this._authService.logOut();
+    this._router.navigate(['home'])
+  }
+
 }

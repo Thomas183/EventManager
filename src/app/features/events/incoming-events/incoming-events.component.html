@@ -1,10 +1,16 @@
 <h1>Evénements</h1>
-<div *ngFor='let activity of activities'>
-  <p>{{activity.name}}</p>
-  <p>{{activity.description}}</p>
-  <p-button>Details</p-button>
-  <br>
-  <br>
-  <p-button>S'inscrire</p-button>
-
+<div *ngIf="activities.length > 0">
+  <div id="activitiesContainer" *ngFor='let activity of activities'>
+    <p-card header="{{activity.name}}" [style]="{width : '36vh'}">
+      <p>{{activity.description}}</p>
+      <div>
+        <p>Début : {{activity.startDate | date : "dd MMM 'à' hh'h'mm"}}</p>
+        <p>Fin : {{activity.endDate | date : "dd MMM 'à' hh'h'mm"}}</p>
+      </div>
+      <p-button [disabled]>Suivre</p-button>
+    </p-card>
+  </div>
+  <div *ngIf="activities.length <= 0">
+    <p>Pas d'événements à venir</p>
+  </div>
 </div>

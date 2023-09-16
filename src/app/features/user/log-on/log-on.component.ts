@@ -14,17 +14,18 @@ export class LogOnComponent {
 
   loginForm: FormGroup;
 
-  constructor(public _router: Router, private route: ActivatedRoute, private _logger: AuthService, private _fb: FormBuilder) {
+  constructor(public _router: Router, private Auth: AuthService, private _fb: FormBuilder) {
     this.loginForm = _fb.group({
-      identifier: [null, Validators.required],
-      password: [null, Validators.required]
+      identifier: [null, [Validators.required], []],
+      password: [null, [Validators.required], []]
     });
   }
 
   login() : void {
+    console.log(this.loginForm.get('identifier')?.value, this.loginForm.get('password')?.value)
     if (this.loginForm.valid) {
       const credentials : Credentials = this.loginForm.value;
-      this._logger.login(credentials);
+      this.Auth.login(credentials);
       this._router.navigate(['home']);
     } else {
       console.log('Login form invalide');
