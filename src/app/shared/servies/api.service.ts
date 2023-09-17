@@ -25,6 +25,10 @@ export class ApiService {
     })
   }
 
+  getActivityDetails(id : number) : Observable<Activity> {
+    return this._httpClient.get<Activity>(`${this.url}/Activity/${id}`)
+  }
+
   getUserActivities(): Observable<Activity[] | BadResponse> {
     return this._httpClient.get<Activity[] | BadResponse>(this.url+'/Activity/MyActivities')
   }
