@@ -10,6 +10,7 @@ import {CalendarModule} from "primeng/calendar";
 import {ChipsModule} from "primeng/chips";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -20,15 +21,16 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     EventDetailsComponent,
     CreateEventComponent
   ],
-  imports: [
-    CommonModule,
-    ButtonModule,
-    CardModule,
-    CalendarModule,
-    ChipsModule,
-    InputTextareaModule,
-    ReactiveFormsModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        ButtonModule,
+        CardModule,
+        CalendarModule,
+        ChipsModule,
+        InputTextareaModule,
+        ReactiveFormsModule,
+        FormsModule,
+        RouterLink
+    ]
 })
 export class EventsModule { }

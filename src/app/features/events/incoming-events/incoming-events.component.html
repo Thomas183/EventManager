@@ -2,12 +2,12 @@
 <div *ngIf="activities.length > 0">
   <div id="activitiesContainer" *ngFor='let activity of activities'>
     <p-card header="{{activity.name}}" [style]="{width : '36vh'}">
-      <p>{{activity.description}}</p>
       <div>
         <p>Début : {{activity.startDate | date : "dd MMM 'à' hh'h'mm"}}</p>
         <p>Fin : {{activity.endDate | date : "dd MMM 'à' hh'h'mm"}}</p>
       </div>
-      <p-button [disabled]>Suivre</p-button>
+      <p-button [disabled]="!isLoggedIn">Suivre</p-button>
+      <p-button [routerLink]="['./eventDetail', activity.id]">Détails</p-button>
     </p-card>
   </div>
   <div *ngIf="activities.length <= 0">

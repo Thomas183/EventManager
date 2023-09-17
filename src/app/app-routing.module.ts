@@ -6,6 +6,7 @@ import {IncomingEventsComponent} from "./features/events/incoming-events/incomin
 import {RegisterComponent} from "./features/user/register/register.component";
 import {UserEventsComponent} from "./features/events/user-events/user-events.component";
 import {CreateEventComponent} from "./features/events/create-event/create-event.component";
+import {EventDetailsComponent} from "./features/events/event-details/event-details.component";
 
 const routes: Routes = [
   {
@@ -28,6 +29,9 @@ const routes: Routes = [
   },
   {
     path: "createEvent", component : CreateEventComponent
+  },
+  {
+    path: "events/eventDetail/:id", component : EventDetailsComponent
   }
 ];
 
