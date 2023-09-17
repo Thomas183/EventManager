@@ -1,13 +1,31 @@
-<div>
-  <div *ngIf="userActivities.length > 0"></div>
-  <div *ngFor="let activity of userActivities">
-    <p>{{activity.name}}</p>
-    <p>{{activity.description}}</p>
-    <p-button>Delete</p-button>
-  </div>
-  <div *ngIf="userActivities.length <= 0">
-    <p>Pas d'événements à venir</p>
-    <p-button>Evénements</p-button>
-    <p-button>Créer un événement</p-button>
+<h1>Mes événements</h1>
+
+<div *ngIf="userActivities.length > 0">
+  <div id="activitiesMainContainer">
+    <div *ngFor="let activity of userActivities">
+      <p-card header="{{activity.name}}" [style]="{width : '36vh'}">
+        <ng-template pTemplate="header">
+          <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png"/>
+        </ng-template>
+        <div>
+          <p>Début : {{activity.startDate | date : "dd MMM 'à' hh'h'mm"}}</p>
+          <p>Fin : {{activity.endDate | date : "dd MMM 'à' hh'h'mm"}}</p>
+        </div>
+        <ng-template pTemplate="footer">
+          <div id="buttonContainer">
+            <p-button (click)="unfollowActivity(activity.id)">Arrêter de suivre</p-button>
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
   </div>
 </div>
+
+<div *ngIf="userActivities.length <= 0" id="noActivityFound">
+  <h2>Pas d'événements à venir</h2>
+  <div id="buttonContainerNoActivity">
+    <p-button [routerLink]="['/events']">Evénements</p-button>
+    <p-button [routerLink]="['/createEvent']">Créer un événement</p-button>
+  </div>
+</div>
+

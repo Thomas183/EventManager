@@ -15,7 +15,7 @@ import { EventsModule } from './features/events/events.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

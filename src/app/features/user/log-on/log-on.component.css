@@ -1,22 +1,39 @@
-.loginForm {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-.loginForm .p-inputgroup {
-  width: 15%;
-}
-
 h1 {
   text-align: center;
 }
 
-#submitButtons {
+form {
+  margin: auto;
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  width: 40vh;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+form p-button {
+  padding-top: 10px;
+}
+
+.p-inputgroup {
+  display: flex;
+  width: 100%;
+}
+.p-inputgroup #description {
+  padding-bottom: 60px;
+}
+
+#buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 5px;
+}
+
+p-calendar {
+  width: 15vh;
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=log-on.component.css.map */

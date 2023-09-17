@@ -7,6 +7,7 @@ import {RegisterComponent} from "./features/user/register/register.component";
 import {UserEventsComponent} from "./features/events/user-events/user-events.component";
 import {CreateEventComponent} from "./features/events/create-event/create-event.component";
 import {EventDetailsComponent} from "./features/events/event-details/event-details.component";
+import {EditEventComponent} from "./features/events/edit-event/edit-event.component";
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
     path: "events", component : IncomingEventsComponent
   },
   {
-    path: "user-events", component : UserEventsComponent
+    path: "userEvents", component : UserEventsComponent
   },
   {
     path: "register", component : RegisterComponent
@@ -31,7 +32,10 @@ const routes: Routes = [
     path: "createEvent", component : CreateEventComponent
   },
   {
-    path: "events/eventDetail/:id", component : EventDetailsComponent
+    path: "eventDetail/:id", component : EventDetailsComponent
+  },
+  {
+    path: "editEvent/:id", component : EditEventComponent
   }
 ];
 

@@ -1,16 +1,25 @@
-<h1>Evénements</h1>
-<div *ngIf="activities.length > 0">
+<h1>Evénements à venir</h1>
+
+<div *ngIf="activities.length > 0" id="activitiesMainContainer">
   <div id="activitiesContainer" *ngFor='let activity of activities'>
     <p-card header="{{activity.name}}" [style]="{width : '36vh'}">
+      <ng-template pTemplate="header">
+        <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
+      </ng-template>
       <div>
         <p>Début : {{activity.startDate | date : "dd MMM 'à' hh'h'mm"}}</p>
         <p>Fin : {{activity.endDate | date : "dd MMM 'à' hh'h'mm"}}</p>
       </div>
-      <p-button [disabled]="!isLoggedIn">Suivre</p-button>
-      <p-button [routerLink]="['./eventDetail', activity.id]">Détails</p-button>
+      <ng-template pTemplate="footer">
+        <div id="buttonContainer">
+          <p-button [disabled]="!isLoggedIn" (click)="followActivity(activity.id)">Suivre</p-button>
+          <p-button [routerLink]="['/eventDetail', activity.id]">Détails</p-button>
+        </div>
+      </ng-template>
     </p-card>
   </div>
-  <div *ngIf="activities.length <= 0">
-    <p>Pas d'événements à venir</p>
-  </div>
 </div>
+<div *ngIf="activities.length <= 0">
+  <h2>Pas d'événements à venir</h2>
+</div>
+

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ApiService} from "../../../shared/servies/api.service";
+import {activityService} from "../../../shared/servies/activity.service";
 import {Activity} from "../../../shared/models/activity";
 
 @Component({
@@ -16,10 +16,10 @@ export class CreateEventComponent {
 
   private _dateRange: Date[] = []
 
-  constructor(private _api : ApiService, _fb: FormBuilder) {
+  constructor(private _api : activityService, _fb: FormBuilder) {
     this.createEventForm = _fb.group({
       name: [null, [Validators.required, Validators.maxLength(100)], []],
-      description: [null, [Validators.required, Validators.maxLength(500)], []],
+      description: [null, [Validators.maxLength(500)], []],
       startDate: [null, [Validators.required], []],
       endDate: [null, [Validators.required], []],
       maxGuest: [null, [], []],

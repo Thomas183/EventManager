@@ -3,7 +3,7 @@ import {ActivatedRoute, Route} from "@angular/router";
 import {switchMap} from "rxjs";
 import {Activity} from "../../../shared/models/activity";
 import {AuthService} from "../../../core/services/auth.service";
-import {ApiService} from "../../../shared/servies/api.service";
+import {activityService} from "../../../shared/servies/activity.service";
 
 @Component({
   selector: 'app-event-details',
@@ -15,7 +15,7 @@ export class EventDetailsComponent {
   activityId?: number
   activity?: Activity
 
-  constructor(route: ActivatedRoute, api: ApiService) {
+  constructor(route: ActivatedRoute, api: activityService) {
     route.paramMap.pipe().subscribe(params => {
       const id = params.get('id')
       if (id) {

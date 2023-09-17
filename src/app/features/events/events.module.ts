@@ -11,6 +11,7 @@ import {ChipsModule} from "primeng/chips";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterLink} from "@angular/router";
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 
 
@@ -19,7 +20,8 @@ import {RouterLink} from "@angular/router";
     UserEventsComponent,
     IncomingEventsComponent,
     EventDetailsComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    EditEventComponent
   ],
     imports: [
         CommonModule,
