@@ -12,7 +12,7 @@ import {LoginBadResponse} from '../models/login-bad-response';
 })
 export class AuthService {
 
-  apiUrl: string = 'https://192.168.0.12:7245/api';
+  apiUrl: string = 'https://localhost:7245/api';
 
   private _isLoggedIn : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   isLoggedIn$ : Observable<boolean> = this._isLoggedIn.asObservable();

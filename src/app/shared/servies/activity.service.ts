@@ -10,7 +10,7 @@ import {Member} from "../models/member";
 })
 export class activityService {
 
-  url: string = 'https://192.168.0.12:7245/api'
+  url: string = 'https://localhost:7245/api'
 
   constructor(private _httpClient: HttpClient) {
 

@@ -59,7 +59,7 @@ export class RegisterComponent {
             password: formData.password,
           }
           this._logger.login(user);
-          this._router.navigate(['home'])
+          this._router.navigate(['/home'])
         },
         error: error => {
           console.log('Register Failed : ', error);

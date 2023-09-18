@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {activityService} from "../../../shared/servies/activity.service";
 import {Activity} from "../../../shared/models/activity";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-event',
@@ -16,7 +17,7 @@ export class CreateEventComponent {
 
   private _dateRange: Date[] = []
 
-  constructor(private _api : activityService, _fb: FormBuilder) {
+  constructor(private _api : activityService, _fb: FormBuilder, private _router : Router) {
     this.createEventForm = _fb.group({
       name: [null, [Validators.required, Validators.maxLength(100)], []],
       description: [null, [Validators.maxLength(500)], []],
@@ -43,6 +44,7 @@ export class CreateEventComponent {
       let activity : Activity = this.createEventForm.value as Activity
       activity.isCancel = false
       this._api.createActivity(activity)
+      this._router.navigate(['/events'])
     }
   }
 

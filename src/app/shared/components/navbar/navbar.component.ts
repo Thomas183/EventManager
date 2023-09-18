@@ -12,6 +12,8 @@ export class NavbarComponent {
 
   isLoggedIn: boolean = false;
 
+
+
   menuItems: MenuItem[];
   constructor(private _authService: AuthService, private _router: Router, private cdRef : ChangeDetectorRef) {
     this.menuItems = this.loadMenuItems()

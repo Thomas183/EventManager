@@ -8,6 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {RouterLink, RouterModule, Routes} from "@angular/router";
+import { PasswordModule } from 'primeng/password';
 
 
 @NgModule({
@@ -19,16 +20,17 @@ import {RouterLink, RouterModule, Routes} from "@angular/router";
     RegisterComponent,
     LogOnComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        CommonModule,
-        InputTextModule,
-        ButtonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        RouterLink,
-        RouterModule,
-    ]
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    InputTextModule,
+    ButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterLink,
+    RouterModule,
+    PasswordModule
+  ]
 })
 export class UserModule { }
