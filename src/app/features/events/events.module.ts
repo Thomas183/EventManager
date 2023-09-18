@@ -12,6 +12,7 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterLink} from "@angular/router";
 import { EditEventComponent } from './edit-event/edit-event.component';
+import {CheckboxModule} from "primeng/checkbox";
 
 
 
@@ -23,16 +24,17 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     CreateEventComponent,
     EditEventComponent
   ],
-    imports: [
-        CommonModule,
-        ButtonModule,
-        CardModule,
-        CalendarModule,
-        ChipsModule,
-        InputTextareaModule,
-        ReactiveFormsModule,
-        FormsModule,
-        RouterLink
-    ]
+  imports: [
+    CommonModule,
+    ButtonModule,
+    CardModule,
+    CalendarModule,
+    ChipsModule,
+    InputTextareaModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterLink,
+    CheckboxModule
+  ]
 })
 export class EventsModule { }

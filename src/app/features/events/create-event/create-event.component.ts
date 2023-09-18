@@ -40,7 +40,8 @@ export class CreateEventComponent {
 
   createEvent() : void {
     if (this.createEventForm.valid){
-      const activity : Activity = this.createEventForm.value as Activity
+      let activity : Activity = this.createEventForm.value as Activity
+      activity.isCancel = false
       this._api.createActivity(activity)
     }
   }

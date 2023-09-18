@@ -1,5 +1,7 @@
 h1 {
   text-align: center;
+  padding: 0;
+  margin-bottom: 5px;
 }
 
 form {
@@ -9,7 +11,7 @@ form {
   width: 50%;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 form p-button {
   padding-top: 10px;
@@ -32,6 +34,14 @@ p-calendar {
   width: 15vh;
   display: flex;
   justify-content: center;
+}
+
+#checkbox {
+  font-weight: bolder;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /*# sourceMappingURL=edit-event.component.css.map */

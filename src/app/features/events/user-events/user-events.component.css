@@ -10,7 +10,7 @@ h1 {
   justify-content: flex-start;
   gap: 5vh;
 }
-#activitiesMainContainer .buttonContainer {
+#activitiesMainContainer #buttonContainer {
   display: flex;
   gap: 10px;
 }

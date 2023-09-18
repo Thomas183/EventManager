@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {activityService} from '../../../shared/servies/activity.service';
 import {Activity} from '../../../shared/models/activity';
-import {formatDate} from "@angular/common";
 import {AuthService} from "../../../core/services/auth.service";
+
 
 @Component({
   selector: 'app-incoming-events',
@@ -13,12 +13,25 @@ export class IncomingEventsComponent {
 
   activities: Activity[] = []
   isLoggedIn: boolean = false
+  userFollowingMap: { [activityId: number]: boolean } = {};
 
   constructor(private _api: activityService, private _auth: AuthService) {
-    _api.getNextActivities();
-    _api.activities$.subscribe(activities => {
-      this.activities = activities;
-      this.activities.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+    _api.getNextActivities().subscribe({
+      next: activities => {
+        const activityArray = activities as Activity[]
+        activityArray.forEach(activity =>{
+          console.log(activity.isCancel)
+        })
+        this.activities = activityArray.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+        this._api.getUserActivities().subscribe(userActivities => {
+          const userActivitiesArray: Activity[] = userActivities as Activity[];
+          for (const id of userActivitiesArray) {
+            console.log(id.id)
+            this.userFollowingMap[id.id] = true;
+          }
+          console.log(this.userFollowingMap)
+        })
+      }
     });
 
     this._auth.isLoggedIn$.subscribe(isLoggedIn => {
@@ -26,8 +39,13 @@ export class IncomingEventsComponent {
     })
   }
 
-  followActivity(id : number) : void {
+  followActivity(id: number): void {
     this._api.followActivity(id)
+    this.userFollowingMap[id] = true
   }
 
+  unfollowActivity(id: number): void {
+    this._api.unfollowActivity(id)
+    this.userFollowingMap[id] = false
+  }
 }

@@ -12,8 +12,9 @@ import {activityService} from "../../../shared/servies/activity.service";
 })
 export class EventDetailsComponent {
 
-  activityId?: number
-  activity?: Activity
+  activityId? : number
+  activity? : Activity
+  isCreator : boolean = false
 
   constructor(route: ActivatedRoute, api: activityService) {
     route.paramMap.pipe().subscribe(params => {
@@ -24,8 +25,9 @@ export class EventDetailsComponent {
     })
 
     if (this.activityId) {
-      api.getActivityDetails(this.activityId).subscribe(activity => {
+      api.getActivityById(this.activityId).subscribe(activity => {
         this.activity = activity
+        this.isCreator = activity.creatorId === parseInt(localStorage.getItem('id')!)
       })
     }
   }

@@ -10,7 +10,7 @@
     <p>Participants max : {{activity.maxGuest ? activity.maxGuest : 'Non'}}</p>
     <div id="buttonContainer">
       <p-button [routerLink]="['/events']">Retour</p-button>
-      <p-button [routerLink]="['/editEvent/'+activity.id]">Modifier</p-button>
+      <p-button [disabled]="!isCreator" [routerLink]="['/editEvent/'+activity.id]">Modifier</p-button>
     </div>
   </p-card>
 </div>

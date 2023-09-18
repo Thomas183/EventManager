@@ -26,10 +26,15 @@
     <input pInputText formControlName="maxGuest" type="number" placeholder="Participants max">
   </div>
 
+  <div id="checkbox">
+    <label for="cancelEvent">Annuler l'événement</label>
+    <p-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="isCancelChecked" [binary]="true" id="cancelEvent"></p-checkbox>
+  </div>
+
   <div id="buttonContainer">
+
+
     <p-button (click)="modifyEvent()">Confirmer</p-button>
-    <p-button (click)="modifyEvent()">Annuler l'évènement</p-button>
-    <p-button (click)="deleteEvent()">Supprimer</p-button>
   </div>
 
 </form>
