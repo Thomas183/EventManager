@@ -1,3 +1,7 @@
+# Context
+
+This project was made as part of an excersise at Techobel. We were given a backend and needed to interact with it to make a simple schedule management app. Sadly I didn't keep the backend executable, it probably still exists somewhere but I have to dig for it, might do that sometimes :)
+
 # EventManager
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
